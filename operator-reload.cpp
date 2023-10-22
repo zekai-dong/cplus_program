@@ -1,52 +1,22 @@
 #include <iostream>
 using namespace std;
-class Complex {
-public:
-  Complex(double r = 0.0, double i = 0.0) : real(r), imag(i) {}
-  //复数+复数运算符+重载成员函数
-  Complex operator+(const Complex &c2) const;
-  //复数+实数运算符+重载成员函数
-  Complex operator+(const double &c2) const;
-  //复数-复数运算符-重载成员函数
-  Complex operator-(const Complex &c2) const;
-  void display() const; //输出复数
-private:
-  double real; //复数实部
-  double imag; //复数虚部
-};
-Complex Complex::operator+(const Complex &c2) const {
-  //创建一个临时无名对象作为返回值
-  return Complex(real + c2.real, imag + c2.imag);
-}
-
-Complex Complex::operator+(const double &c2) const {
-  //创建一个临时无名对象作为返回值
-  return Complex(real + c2, imag);
-}
-
-Complex Complex::operator-(const Complex &c2) const {
-  //创建一个临时无名对象作为返回值
-  return Complex(real - c2.real, imag - c2.imag);
-}
-
-void Complex::display() const {
-  cout << "(" << real << ", " << imag << ")" << endl;
-}
 int main() {
-  Complex c1(5, 4), c2(2, 10), c3;
-  double c4 = 6;
-  cout << "c1 = ";
-  c1.display();
-  cout << "c2 = ";
-  c2.display();
-  c3 = c1 - c2; //使用重载运算符完成复数减法
-  cout << "c3 = c1 - c2 = ";
-  c3.display();
-  c3 = c1 + c2; //使用重载运算符完成复数加法
-  cout << "c3 = c1 + c2 = ";
-  c3.display();
-  c3 = c1 - c4;
-  cout << "c3 = c1 + c4 = ";
-  c3.display();
-  return 0;
+  int year;
+  cout << "你已经存在于这个世界上多少年了？" << endl;
+  cin >> year;
+  cout << "我存在于这个世界上的时间为:";
+  cout << year;
+  cout << "年" << endl;
+
+  cout << "我已经认识这个世界" << year << "年了";
+
+  int years;
+  cout << "你仍将存在于这个世界上多少年?" << endl;
+  cin >> years;
+  cout << "我仍将继续存在于这个世界上" << year << "年";
+
+  int time;
+  cout << "你将总共存在于这个世界上多少年?" << endl;
+  time = year + years;
+  cout << "我将总共存在于这个世界" << time << "年" << endl;
 }
